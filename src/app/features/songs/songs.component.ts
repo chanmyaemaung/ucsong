@@ -30,7 +30,7 @@ import { SongsService } from './services/songs.service';
     MatAutocompleteModule,
   ],
   templateUrl: './songs.component.html',
-  styleUrls: ['./songs.component.css'],
+  styleUrls: ['./songs.component.scss'],
 })
 export class SongsComponent {
   searchControl = new FormControl('');

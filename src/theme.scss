@@ -1,0 +1,86 @@
+@use '@angular/material' as mat;
+
+// Include the common styles for Angular Material
+@include mat.core();
+
+// Custom color palettes
+$dark-primary: mat.define-palette(mat.$indigo-palette, 200, 500, 700);
+$dark-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$dark-warn: mat.define-palette(mat.$red-palette);
+
+$light-primary: mat.define-palette(mat.$indigo-palette);
+$light-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$light-warn: mat.define-palette(mat.$red-palette);
+
+// Light theme
+$light-theme: mat.define-light-theme((color: (primary: $light-primary,
+        accent: $light-accent,
+        warn: $light-warn,
+      ),
+      typography: mat.define-typography-config(),
+      density: 0,
+    ));
+
+// Dark theme
+$dark-theme: mat.define-dark-theme((color: (primary: $dark-primary,
+        accent: $dark-accent,
+        warn: $dark-warn,
+      ),
+      typography: mat.define-typography-config(),
+      density: 0,
+    ));
+
+// Apply the light theme by default
+@include mat.all-component-themes($light-theme);
+
+// Apply dark theme when dark-theme class is present
+.dark-theme {
+  // Include all component themes
+  @include mat.all-component-themes($dark-theme);
+
+  // Custom dark theme variables
+  --background: #121212;
+  --surface-background: #1e1e1e;
+  --text-primary: rgba(255, 255, 255, 0.87);
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --border-color: rgba(255, 255, 255, 0.12);
+  --hover-background: rgba(255, 255, 255, 0.08);
+
+  // Override Material component colors
+  .mat-mdc-card {
+    background-color: var(--surface-background);
+    color: var(--text-primary);
+  }
+
+  .mat-toolbar {
+    background-color: var(--surface-background);
+    color: var(--text-primary);
+  }
+
+  .mat-mdc-form-field {
+    background-color: var(--surface-background);
+  }
+
+  .mat-mdc-select-value,
+  .mat-mdc-select-arrow {
+    color: var(--text-primary);
+  }
+
+  .mat-mdc-option {
+    color: var(--text-primary);
+
+    &:hover:not(.mat-mdc-option-disabled) {
+      background: var(--hover-background);
+    }
+  }
+}
+
+// Light theme variables
+:root {
+  --background: #f5f5f5;
+  --surface-background: #ffffff;
+  --text-primary: rgba(0, 0, 0, 0.87);
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --border-color: rgba(0, 0, 0, 0.12);
+  --hover-background: rgba(0, 0, 0, 0.04);
+}

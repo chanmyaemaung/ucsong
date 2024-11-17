@@ -2,7 +2,7 @@
   <div class="logo">
     <ng-container *ngIf="logoExists; else fallbackLogo">
       <img
-        src="assets/images/logo.svg"
+        [src]="logoPath"
         alt="UC Logo"
         class="logo-img"
         (error)="onLogoError()"
