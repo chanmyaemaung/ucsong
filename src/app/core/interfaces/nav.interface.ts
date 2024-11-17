@@ -4,6 +4,10 @@
  */
 export interface INavItem {
   path: string;
-  label: string;
+  label: {
+    my: string;
+    en: string;
+    th: string;
+  };
   exact: boolean;
 }

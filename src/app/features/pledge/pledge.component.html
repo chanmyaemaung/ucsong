@@ -1,0 +1,13 @@
+<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <div class="card">
+    <h1 class="text-3xl font-bold mb-8">{{ getTranslated(pledge.title) }}</h1>
+
+    <div class="space-y-6">
+      @for (line of getTranslated(pledge.content); track $index) {
+      <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+        {{ line }}
+      </p>
+      }
+    </div>
+  </div>
+</div>
