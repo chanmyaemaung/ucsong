@@ -1,0 +1,44 @@
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <!-- Hero Section -->
+  <section class="text-center mb-16">
+    <h1 class="text-4xl font-bold tracking-tight sm:text-5xl mb-4">
+      Holy Song Book
+    </h1>
+    <p class="text-lg text-gray-600 dark:text-gray-400">
+      Explore spiritual songs and pledges in your preferred language
+    </p>
+  </section>
+
+  <!-- Search Section -->
+  <section class="mb-16">
+    <div class="max-w-xl mx-auto">
+      <label for="search" class="block text-sm font-medium mb-2">
+        Search Songs
+      </label>
+      <input
+        type="search"
+        id="search"
+        class="input"
+        placeholder="Search by title, number or author..."
+        (input)="onSearch($event)"
+      />
+    </div>
+  </section>
+
+  <!-- Songs Grid Section -->
+  <section>
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-2xl font-bold">Songs</h2>
+      <button class="btn btn-secondary" (click)="toggleView()">
+        Toggle View
+      </button>
+    </div>
+
+    <!-- Grid placeholder -->
+    <div
+      class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
+    >
+      <!-- Grid items will be added here -->
+    </div>
+  </section>
+</div>
