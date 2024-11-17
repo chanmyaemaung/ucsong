@@ -1,0 +1,34 @@
+<nav class="navbar">
+  <div class="logo">
+    <ng-container *ngIf="logoExists; else fallbackLogo">
+      <img
+        src="assets/images/logo.svg"
+        alt="UC Logo"
+        class="logo-img"
+        (error)="onLogoError()"
+      />
+    </ng-container>
+    <ng-template #fallbackLogo>
+      <div class="logo-fallback">
+        <span class="material-icons logo-icon">music_note</span>
+        <h1 class="logo-text">UC Songs</h1>
+      </div>
+    </ng-template>
+  </div>
+
+  <div class="nav-links">
+    <a
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Home
+    </a>
+    <a routerLink="/songs" routerLinkActive="active">Songs</a>
+    <a routerLink="/pledge" routerLinkActive="active">Pledge</a>
+
+    <button (click)="openSettings()" class="settings-btn">
+      <span class="material-icons">settings</span>
+    </button>
+  </div>
+</nav>

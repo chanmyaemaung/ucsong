@@ -1,0 +1,17 @@
+<div class="pledge-container">
+  <h1>
+    {{
+      currentLang() === "en"
+        ? "My Pledge"
+        : currentLang() === "my"
+        ? "ကျွန်ုပ်၏ကတိသစ္စာ"
+        : "คำปฏิญาณของฉัน"
+    }}
+  </h1>
+
+  <div class="pledge-content">
+    @for (pledge of pledges[currentLang()]; track $index) {
+    <p>{{ $index + 1 }}. {{ pledge }}</p>
+    }
+  </div>
+</div>

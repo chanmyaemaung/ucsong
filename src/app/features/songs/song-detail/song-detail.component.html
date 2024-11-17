@@ -1,0 +1,48 @@
+<div class="song-detail-container">
+  @if (song(); as songData) {
+  <mat-card class="song-detail-card">
+    <mat-card-header>
+      <div mat-card-avatar class="song-number">{{ songData.number }}</div>
+      <mat-card-title>
+        {{ songData.translations[currentLang()].title }}
+      </mat-card-title>
+      <mat-card-subtitle>{{ songData.category }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="lyrics">
+        {{ songData.translations[currentLang()].lyrics }}
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary">
+        <mat-icon>play_arrow</mat-icon>
+        PLAY
+      </button>
+      <button mat-raised-button color="accent">
+        <mat-icon>favorite_border</mat-icon>
+        LIKE
+      </button>
+      <button mat-raised-button>
+        <mat-icon>share</mat-icon>
+        SHARE
+      </button>
+      <button mat-raised-button (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+        BACK
+      </button>
+    </mat-card-actions>
+  </mat-card>
+  } @else {
+  <mat-card>
+    <mat-card-content>
+      <p>Song not found</p>
+      <button mat-raised-button color="primary" (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+        Go Back to Songs
+      </button>
+    </mat-card-content>
+  </mat-card>
+  }
+</div>

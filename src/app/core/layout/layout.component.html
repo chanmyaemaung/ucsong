@@ -1,0 +1,55 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="false"
+  >
+    <mat-toolbar>
+      <div class="logo-container">
+        <img src="assets/images/logo.svg" alt="UC Logo" class="logo" />
+        <span>UC Songs</span>
+      </div>
+    </mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/" (click)="drawer.close()">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </a>
+      <a mat-list-item routerLink="/songs" (click)="drawer.close()">
+        <mat-icon>music_note</mat-icon>
+        <span>Songs</span>
+      </a>
+      <a mat-list-item routerLink="/pledge" (click)="drawer.close()">
+        <mat-icon>assignment</mat-icon>
+        <span>Pledge</span>
+      </a>
+      <a mat-list-item (click)="openSettings(); drawer.close()">
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <!-- Mobile Toolbar -->
+    <mat-toolbar *ngIf="isHandset$ | async" color="primary">
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="toolbar-spacer"></span>
+      <span>UC Songs</span>
+    </mat-toolbar>
+
+    <!-- Desktop Navbar -->
+    <app-navbar *ngIf="!(isHandset$ | async)"></app-navbar>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <router-outlet></router-outlet>
+    </main>
+
+    <!-- Footer -->
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

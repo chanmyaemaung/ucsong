@@ -1,0 +1,4 @@
+.main-content {
+  margin-left: var(--navbar-width);
+  padding: 2rem;
+}
